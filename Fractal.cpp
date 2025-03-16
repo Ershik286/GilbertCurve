@@ -5,12 +5,11 @@
 
 using namespace std;
 
-// Структура для хранения точек
 struct Point {
     double x, y;
 };
 
-// Функция для рисования кривой Гильберта
+//Create HilbertCurve Points
 void hilbertCurve(vector<Point>& points, double x, double y, double xi, double xj, double yi, double yj, double n) {
     if (n <= 0) {
         double x1 = x + (xi + yi) / 2;
@@ -25,7 +24,7 @@ void hilbertCurve(vector<Point>& points, double x, double y, double xi, double x
     }
 }
 
-// Функция для отрисовки кривой
+// Function Draw Curve
 void drawHilbertCurve(HDC hdc, const vector<Point>& points) {
     if (points.empty()) return;
 
@@ -35,7 +34,7 @@ void drawHilbertCurve(HDC hdc, const vector<Point>& points) {
     }
 }
 
-// Оконная процедура
+// Window
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     static vector<Point> points;
     static bool isDrawn = false;
@@ -69,7 +68,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     return 0;
 }
 
-// Точка входа
+// Window Main
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     const wchar_t CLASS_NAME[] = L"HilbertCurveWindowClass";
 
